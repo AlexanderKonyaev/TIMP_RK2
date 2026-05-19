@@ -1,0 +1,8 @@
+git init
+git add .
+git commit -m "RK2_commit"
+git remote add origin https://github.com/AlexanderKonyaev/TIMP_RK2.git
+git branch -M main
+git push -u origin main
+git tag v1.0
+git push origin v1.0
