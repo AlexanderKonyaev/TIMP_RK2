@@ -15,7 +15,7 @@ TEST(CompositeTest, CompositeOutput) {
     Composite sub = std::make_shared<Composite>("sub");
     sub.Add(std::make_shared<Leaf>("leafA"));
 
-    root.Add(subComposite);
+    root.Add(sub);
 
     root.Add(std::make_shared<Leaf>("leafB"));
 
