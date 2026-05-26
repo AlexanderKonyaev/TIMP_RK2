@@ -12,7 +12,11 @@ TEST(CompositeTest, SingleLeafOutput) {
 
 TEST(CompositeTest, CompositeOutput) {
     Composite root("root");
-    root.Add(std::make_shared<Leaf>("leafA"));
+    Composite sub = std::make_shared<Composite>("sub");
+    sub.Add(std::make_shared<Leaf>("leafA"));
+
+    root.Add(subComposite);
+
     root.Add(std::make_shared<Leaf>("leafB"));
 
     testing::internal::CaptureStdout();
@@ -21,6 +25,7 @@ TEST(CompositeTest, CompositeOutput) {
 
     std::string expected =
         "Composite: root\n"
+        "Composite: sub\n"
         "Leaf: leafA\n"
         "Leaf: leafB\n";
     EXPECT_EQ(output, expected);
