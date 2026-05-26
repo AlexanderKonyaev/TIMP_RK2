@@ -30,3 +30,17 @@ TEST(CompositeTest, CompositeOutput) {
         "Leaf: leafB\n";
     EXPECT_EQ(output, expected);
 }
+
+TEST(CompositeTest, CompositeOutput) {
+    Composite sub("sub");
+    sub.Add(std::make_shared<Leaf>("leafA"));
+
+    testing::internal::CaptureStdout();
+    root.Operation();
+    std::string output = testing::internal::GetCapturedStdout();
+
+    std::string expected =
+        "Composite: sub\n"
+        "Leaf: leafA\n";
+    EXPECT_EQ(output, expected);
+}
