@@ -12,7 +12,7 @@ TEST(CompositeTest, SingleLeafOutput) {
 
 TEST(CompositeTest, CompositeOutput) {
     Composite root("root");
-    Composite sub = std::make_shared<Composite>("sub");
+    Composite sub("sub");
     sub.Add(std::make_shared<Leaf>("leafA"));
 
     root.Add(sub);
